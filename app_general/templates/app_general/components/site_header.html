@@ -1,0 +1,11 @@
+{% load static %}
+<header>
+    <a  class="name_header" href="{% url 'home' %}">
+        <img src="{% static 'app_general/images/brain.svg' %}" alt="" width="60px">
+        <div class="title_name">
+            <span>Alzheimer’s Disease Diagnosis and Symptom Assessment System</span>
+            <span>ระบบวินิจฉัยและประเมินอาการผู้ป่วยโรคอัลไซเมอร์</span>
+        </div> 
+    </a>
+    <a class="admin_btn" href="{% url 'admin:index' %}">จัดการข้อมูล</a>
+</header>

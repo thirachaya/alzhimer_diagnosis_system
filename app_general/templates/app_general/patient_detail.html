@@ -1,0 +1,81 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}รายละเอียดผู้ป่วย{% endblock %}
+{% load static %}
+{% block content %}
+<div class="patient_detail">
+    <h1>รายละเอียดผู้ป่วย</h1>
+    <h3>ชื่อ: {{ patient.patient_firstName }} {{ patient.patient_lastName }}</h3>
+    <p>วัน/เดือน/ปีเกิด: {{ patient.patient_birthdate }}</p>
+    <p>อายุ: {{ patient.age }} ปี</p>
+    <p>โรคประจำตัว:</p>
+    {% if patient.patient_UD.all %}
+        <ul>
+            {% for disease in patient.patient_UD.all %}
+                <li>{{ disease.nameUD }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>ไม่มีโรคประจำตัว</p>
+    {% endif %}
+
+    <h2>ประวัติการวินิจฉัย</h2>
+{% if diagnostics %}
+    <table>
+        <thead>
+            <tr>
+                <th>ลำดับ</th>
+                <th>วันที่ - เวลา</th>
+                <th>ผลการวินิจฉัย</th>
+                <th>คำแนะนำของแพทย์</th>
+                <th>รูป MRI</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diagnostic in diagnostics %}
+            <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ diagnostic.date }} {{ diagnostic.time }}</td>
+                    <td>{{ diagnostic.Ddx }}</td>
+                    <td>{{ diagnostic.recommend }}</td>
+                    <td><img src="{{ diagnostic.MRI_pic.url }}" alt="MRI Image" width="100"></td>
+                    <td>
+                        <a href="{% url 'prediction_result' patient.patient_HN 0 diagnostic.id %}">แก้ไข</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>ไม่มีประวัติการวินิจฉัย</p>
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div>
+        <div>
+            <label for="predict">เพิ่มรูปภาพเพื่อวินิจฉัย:</label>
+            <p style="color: #FF0000;">ใช้เฉพาะ MRI ส่วนศีรษะ ความละเอียดไม่ต่ำกว่า 180x180 พิกเซล **(jpeg, jpg, png)</p>
+        </div>
+        
+        <input type="file" name="predict" accept="image/*">
+    </div>
+
+    {% if error_message %}
+            <p style="color:red;">{{ error_message }}</p>  <!-- แสดงข้อความผิดพลาด -->
+        {% endif %}
+    <button type="submit">ดูผลการวินิจฉัย</button>  
+</form>
+<div class="back_link">
+    <a href="{% url 'show_patient' %}">กลับไปยังคลังผู้ป่วย</a>
+</div>
+
+{% if prediction %}
+    <h2>ผลการวินิจฉัย:</h2>
+    <p>ผู้ป่วยมีโรคอัลไซเมอร์ระดับ: {{ prediction }}</p>
+{% endif %}
+
+</div>
+
+{% endblock %}

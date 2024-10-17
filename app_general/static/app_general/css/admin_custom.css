@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Prompt", sans-serif;
+}
+
+#header {
+    background-color: #0B4B33;
+    color: #fff;
+}
+
+#site-name a:link, #site-name a:visited {
+    color: #fff;
+    font-size: large;
+}
+
+div.breadcrumbs {
+    background-color: #3f7268;
+    color: #f5dd5d;
+}
+
+div.breadcrumbs a:focus, div.breadcrumbs a:hover {
+    color: #f5dd5d;
+}
+
+.module caption {
+    background-color: #0B4B33;
+    color: #f5dd5d;
+}
+
+#login-form .submit-row input {
+    background-color: #14A44D;
+}
+
+.theme-toggle svg.theme-icon-when-auto, .theme-toggle svg.theme-icon-when-dark, .theme-toggle svg.theme-icon-when-light {
+    color: #0B4B33;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: #14A44D;
+}

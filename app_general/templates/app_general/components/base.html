@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block site_title %}{% endblock %} | Alzheimer Diagnosis System</title>
+    <link rel="shortcut icon" href="{% static 'app_general/images/icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'app_general/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/main.css' %}">
+
+</head>
+<body>
+    <div class="wrapper">
+        {% include 'app_general/components/site_header.html' %}
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+        {% include 'app_general/components/site_footer.html' %}
+    </div>
+    <% block script %
+    <% endblock %>
+
+</body>
+
+</html>

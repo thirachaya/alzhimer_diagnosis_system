@@ -1,0 +1,26 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}ผลการวินิจฉัย{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="result_detail">
+    <h2>ผลการวินิจฉัยของผู้ป่วย {{ patient.patient_firstName }} {{ patient.patient_lastName }}</h2>
+
+    <p><strong>ผลการวินิจฉัย:</strong> {{ diagnostic.Ddx }}</p>
+
+    <p><strong>วันที่วินิจฉัย:</strong> {{ diagnostic.date }}</p>
+
+    <p><strong>ภาพ MRI ที่อัปโหลด:</strong></p>
+    <img src="{{ diagnostic.MRI_pic.url }}" alt="MRI Image">
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="recommend">คำแนะนำของแพทย์:</label>
+        <textarea name="recommend" id="recommend" rows="4" cols="50">{{ diagnostic.recommend }}</textarea>
+        <button type="submit">บันทึกคำแนะนำ</button>
+    </form>
+
+    <a href="{% url 'patient_detail' patient.patient_HN %}">กลับไปยังรายละเอียดผู้ป่วย</a>
+</div>
+{% endblock %}

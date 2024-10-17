@@ -1,0 +1,27 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}หน้าหลัก{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="homepage">
+    <div class="find_pt">
+        <form method="GET" action="{% url 'show_patient' %}">
+            <input type="search" name="q" id="search-patient" placeholder="ค้นหารายชื่อผู้ป่วย">
+            <button type="submit">ค้นหา</button>
+        </form>
+        <span>หรือ</span>
+        <a href="{% url 'add_patient' %}">เพิ่มข้อมูลผู้ป่วย</a>
+    </div>
+    <div class="folder_box">
+        <a href="{% url 'show_patient' %}">
+            <div class="pic_folder">
+                <img src="{% static 'app_general/images/folder.svg' %}" alt="">
+            </div>
+            <div class="text_folder">
+                <span>คลังผู้ป่วย</span>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

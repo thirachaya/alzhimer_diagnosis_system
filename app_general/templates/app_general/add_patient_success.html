@@ -1,0 +1,13 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site)title %}เพิ่มข้อมูลผู้ป่วย{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="add_success_group">
+    <div class="add_success">
+        <h3>เพิ่มข้อมูลผู้ป่วยเรียบร้อยแล้ว</h3>
+    </div>
+    <a href="{% url 'show_patient' %}" class="btn">ไปที่คลังผู้ป่วย</a>
+</div>
+{% endblock %}

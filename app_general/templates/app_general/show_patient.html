@@ -1,0 +1,54 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}คลังผู้ป่วย{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="patient_table">
+    <h2>รายชื่อผู้ป่วยในระบบ</h2>
+    <div class="find_pt">
+        <form method="GET" action="">
+            <input type="search" name="q" id="search-patient" placeholder="ค้นหารายชื่อผู้ป่วย">
+            <button type="submit">ค้นหา</button>
+        </form>
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>คำนำหน้า</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                    <th>เลขประจำตัวประชาชน</th>
+                    <th>วัน/เดือน/ปีเกิด</th>
+                    <th>อายุ</th>
+                    <!-- <th>โรคประจำตัว</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ forloop.counter }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.get_patient_prefix_display }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.patient_firstName }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.patient_lastName }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.patient_IDcard }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.patient_birthdate }}</a></td>
+                        <td><a href="{% url 'patient_detail' patient.patient_HN %}">{{ patient.age }} ปี</a></td>
+                        <!-- <td><a href="{% url 'patient_detail' patient.patient_HN %}">
+                            {% for disease in patient.patient_UD.all %}
+                                {{ disease.nameUD }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </a></td>                         -->
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">ไม่มีผู้ป่วยในระบบ</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

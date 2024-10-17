@@ -1,0 +1,63 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block site_title %}เพิ่มข้อมูลผู้ป่วย{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="add_data">
+    <h2>เพิ่มข้อมูลผู้ป่วย</h2>
+    <form action="{% url 'add_patient' %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.patient_prefix.label_tag }}
+            {{ form.patient_prefix }}
+            {{ form.patient_prefix.errors }}
+        </div>
+        <div>
+            {{ form.patient_IDcard.label_tag }}
+            {{ form.patient_IDcard }}
+            {{ form.patient_IDcard.errors }}
+        </div>
+        <div class="fl_name">
+            <div style="width: 45%;">
+                {{ form.patient_firstName.label_tag }}
+                {{ form.patient_firstName }}
+                {{ form.patient_firstName.errors }}
+            </div>
+            <div style="width: 45%;">
+                {{ form.patient_lastName.label_tag }}
+                {{ form.patient_lastName }}
+                {{ form.patient_lastName.errors }}
+            </div> 
+        </div>
+        <div>
+            {{ form.patient_birthdate.label_tag }}
+            {{ form.patient_birthdate }}
+            {{ form.patient_birthdate.errors }}
+        </div>
+        <div>
+            {{ form.patient_UD.label_tag }}
+            {{ form.patient_UD }}
+            {{ form.patient_UD.errors }}
+        </div>
+        <div>
+            <button type="submit">เพิ่มข้อมูล</button>
+        </div>
+    </form>
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.form-select').select2({
+            placeholder: 'เลือกโรคประจำตัว',
+            allowClear: true
+        });
+    });
+</script>
+{% endblock %}
+
+
