@@ -1,0 +1,1 @@
+web: gunicorn alz_system.wsgi

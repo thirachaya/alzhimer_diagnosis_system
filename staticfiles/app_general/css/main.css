@@ -367,6 +367,12 @@ footer {
     background-color: #025aa5;
 }
 
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 /* Site Show Patient */
 .find_pt {
@@ -403,7 +409,6 @@ footer {
 .find_pt button:hover {
     background-color: #154e44; 
 }
-
 
 .patient_table {
     width: 1080px;
@@ -514,12 +519,26 @@ footer {
 .patient_detail table {
     width: 100%;
     max-width: 100%;
-    table-layout: fixed; 
+    /* table-layout: fixed;  */
     border-collapse: collapse;
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.patient_detail td:first-child {
+    text-align: center;
+}
+
+.patient_detail td:last-child {
+    text-align: center;
+}
+
+.patient_detail tr {
+
+    height: 100%;
+    align-items: center;
 }
 
 .patient_detail th, .patient_detail td {
@@ -533,12 +552,15 @@ footer {
     background-color: #1c6d5e;
     color: #fff;
     font-weight: 600;
-    text-transform: uppercase;
     text-align: center;
 }
 
 .patient_detail th:last-child, .patient_detail td:last-child {
     border-right: none;
+}
+
+.patient_detail th:first-child, .patient_detail td:first-child {
+    width: 90px;
 }
 
 .patient_detail td {
@@ -603,7 +625,7 @@ footer {
 
 .patient_detail a {
     display: inline-block;
-    margin-top: 20px;
+    vertical-align: middle;
     padding: 10px 20px;
     background-color: #0275d8;
     color: white;
@@ -627,6 +649,29 @@ footer {
     text-align: center;
 }
 
+.patient_detail th:first-child, .patient_detail td:first-child {
+    width: 5%;  
+}
+
+.patient_detail th:nth-child(2), .patient_detail td:nth-child(2) {
+    width: 20%;  
+}
+
+.patient_detail th:nth-child(3), .patient_detail td:nth-child(3) {
+    width: 25%;  
+}
+
+.patient_detail th:nth-child(4), .patient_detail td:nth-child(4) {
+    width: 30%;  
+}
+
+.patient_detail th:nth-child(5), .patient_detail td:nth-child(5) {
+    width: 15%;  
+}
+
+.patient_detail th:nth-child(6), .patient_detail td:nth-child(6) {
+    width: 5%;  
+}
 
 /* Site Prediction Result */
 .result_detail {

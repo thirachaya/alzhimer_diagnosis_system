@@ -4,7 +4,6 @@ from django.forms.widgets import SelectMultiple
 from django.db.models.base import Model
 from .models import Patient
 from app_underlying_disease.models import UnderlyingDisease
-from django_select2.forms import Select2MultipleWidget
 import re
 from django.core.exceptions import ValidationError
 

@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-plwzna%^aksxoj1a10p(30@hlz8kj#aoman_d__=!4l&doi+kx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['alzdiagnisis.onrender.com', 'localhost']
 
 
 # Application definition
@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'alz_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'alzheimers_project',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'alzheimers_project_6nm8',
         'USER': 'root',
-        'PASSWORD': '20011226',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': 'bRXTxttGUlxZ8n1GwCAn339dRDrX9o7Y',
+        'HOST': 'dpg-csamrqi3esus739ve270-a',
+        'PORT': '5432',
     }
 }
 
