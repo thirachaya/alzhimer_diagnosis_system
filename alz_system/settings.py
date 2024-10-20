@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-plwzna%^aksxoj1a10p(30@hlz8kj#aoman_d__=!4l&doi+kx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alzdiagnisis.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['alzhimer-diagnosis-system.onrender.com', 'localhost']
 
 
 # Application definition
