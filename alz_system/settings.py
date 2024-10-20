@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'alz_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alzheimers_project_6nm8',
+        'NAME': 'alzheimers_project_qtju',
         'USER': 'root',
-        'PASSWORD': 'bRXTxttGUlxZ8n1GwCAn339dRDrX9o7Y',
-        'HOST': 'dpg-csamrqi3esus739ve270-a',
+        'PASSWORD': 'lvoh0vjUHEZARso4h6dkQPbDPoRbfR73',
+        'HOST': 'dpg-csan19rqf0us73a0hg70-a',
         'PORT': '5432',
     }
 }
